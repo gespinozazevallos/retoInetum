@@ -14,8 +14,9 @@ def step_when_i_login_with_username_and_password(context, username, password):
 
 @when('I add a new employee with name "{employee_name}"')
 def step_when_i_add_a_new_employee(context, employee_name):
-    random_number = random.randint(1000, 9999)
+    random_number = random.randint(1, 9999)
     employee_name_with_number = f'Test_{employee_name}_{random_number}'
+    context.employee_name_with_number = employee_name_with_number  
     context.page.click("span:has-text('Admin')")
     context.page.click("button:has-text('Add')")
     context.page.click("div.oxd-select-text--active")
